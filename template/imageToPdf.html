@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Converter {% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'CSS/imageToPdf.css' %}"> {% endblock css %}
+{% block content %}
+<section id="pdf">
+  <div class="converter">
+    <h1>Image to PDF Converter</h1>
+    <form id="png-form">
+      <div class="input-container">
+        <label for="png-file">Choose a PNG file:</label>
+        <input type="file" id="png-file" accept=".png" required>
+      </div>
+      <div class="img-name">
+        <input type="text">
+      </div>
+      <button class="coustomBtn" type="submit">Convert to PDF</button>
+      <button class="coustomBtn" type="submit">Download</button>
+    </form>
+    <div id="output"></div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %} Profile Update {% endblock title %}
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row">
+            <form method="POST" enctype="multipart/form-data" style="width: 50%; margin:0 auto">
+                {% csrf_token %}
+                {% if messages %}
+                <ul class="messages" style="list-style: none; color:rgb(255, 52, 52)">
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="txt" class="form-control" value="{{prof.name}}" name="name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" value="{{prof.email}}" name="email">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Phone</label>
+                    <input type="number" class="form-control" value="{{prof.phone}}" name="phone">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Age</label>
+                    <input type="number" class="form-control" value="{{prof.age}}" name="age">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Birthday</label>
+                    <input type="date" class="form-control" value="{{prof.birth_date}}" name="birth_date">
+                </div>
+                <div class="mb-3">
+                    <img style="height:200px; width:250px;" src="{{prof.image.url}}" alt="">
+                    <input type="file" class="form-control" aria-describedby="emailHelp" name="image">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Blood</label>
+                    <select value="{{prof.blood}}" name="blood">
+                        <option value="A+">A+</option>
+                        <option value="B-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Gender</label>
+                    <select value="{{prof.gender}}" name="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Religion</label>
+                    <select value="{{prof.religion}}" name="religion">
+                        <option value="Islam">Islam</option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Buddha">Buddha</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Address</label>
+                    <input type="txt" class="form-control" value="{{prof.address}}" name="address">
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+</section {% endblock %}

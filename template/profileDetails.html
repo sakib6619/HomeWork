@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %} Profile_Details {% endblock title %}
+{% block content %}
+<section style="margin: 1rem;">
+    <div class="container">
+        <div class="row">
+            <div class="card" style="width:auto;">
+                <img src="{{prof.image.url}}" class="card-img-top" alt="{{prof.name}}"
+                    style="height: 10rem; width:100%; margin:0.5rem">
+                <div class="card-body">
+                    <h5 class="card-title">name: {{prof.name}}</h5>
+                    <p class="card-text"> Phone: {{prof.phone}}</p>
+                    <p class="card-text">Email: {{prof.email}}</p>
+                    <p class="card-text">Age: {{prof.age}}</p>
+                    <p class="card-text">birth: {{prof.birth_date}}</p>
+                    <p class="card-text">blood: {{prof.blood}}</p>
+                    <p class="card-text">gender: {{prof.gender}}</p>
+                    <p class="card-text">religion: {{prof.religion}}</p>
+                    <p class="card-text">address: {{prof.address}}</p>
+                    <a href="{% url 'update' prof.id %}" class="btn btn-primary">Update</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Calculator {% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'CSS/cal.css' %}"> {% endblock css %}
+{% block content %}
+<section id="body">
+    <form method="POST">
+        {% csrf_token%}
+        <div class="calculator">
+            <input type="text" id="display" readonly placeholder="00" value={{output}}>
+            <div class="buttons">
+                <button name="1" value=1>1</button>
+                <button name="2" value=2>2</button>
+                <button name="3" value=3>3</button>
+                <button name="C" value=0>C</button>
+                <button name="4" value=4>4</button>
+                <button name="5" value=5>5</button>
+                <button name="6" value=6>6</button>
+                <button name="+" value=+>+</button>
+                <button name="7" value=7>7</button>
+                <button name="8" value=8>8</button>
+                <button name="9" value=9>9</button>
+                <button name="-" value=->-</button>
+                <button name="*" value=*>*</button>
+                <button name="0" value=0>0</button>
+                <button name="/" value= />/</button>
+                <button name="=" value='='>=</button>
+            </div>
+        </div>
+    </form>
+</section>
+{% endblock %}

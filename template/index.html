@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} index {% endblock title %}
+{% block content %}
+<section style="margin: 1rem;">
+    <div class="container">
+        <div class="row">
+            {% if messages %}
+            <ul class="messages" style="list-style: none; color:rgb(31, 226, 40)">
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% for prof in prof %}
+            <div class="card" style="width: 18rem;">
+                <a href="{% url 'profDetails' prof.id %}"><img src="{{prof.image.url}}" class="card-img-top"
+                        alt="{{prof.name}}" style="height: 10rem; width:100%; margin:0.5rem"></a>
+                <div class="card-body">
+                    <h5 class="card-title">{{prof.name}}</h5>
+                    <p class="card-text">{{prof.phone}}</p>
+                    <p class="card-text">{{prof.email}}</p>
+                    <a href="{% url 'update' prof.id %}" class="btn btn-primary">Update</a>
+                    <a href="{% url 'delete' prof.id %}" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
